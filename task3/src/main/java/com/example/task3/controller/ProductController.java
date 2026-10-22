@@ -15,21 +15,21 @@ public class ProductController {
         this.productService = productService;
     }
 
-    //список товаров
+    
     @GetMapping("/products")
     public String getProducts(Model model) {
         model.addAttribute("products", productService.getAllProducts());
         return "products-list";
     }
 
-    //форма добавления
+    
     @GetMapping("/products/add")
     public String showAddForm(Model model) {
         model.addAttribute("product", new Product());
         return "product-form";
     }
 
-    //сохранение товара
+    
     @PostMapping("/products/add")
     public String saveProduct(@ModelAttribute Product product) {
         productService.saveProduct(product);
